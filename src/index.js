@@ -3,6 +3,8 @@ import "@uirouter/angularjs";
 import React from "react";
 import ReactDOM from "react-dom";
 
+const ngApp1 = angular.module("ngApp1", ['ui.router']);
+
 const App1 = () => {
   return <div>Hello React App1!</div>;
 };
@@ -16,7 +18,6 @@ const NgReactComp = () => {
   return <div>Hello Ng React!</div>;
 };
 
-const ngApp1 = angular.module("ngApp1", ['ui.router']);
 
 ngApp1
   .controller("myCtrl", function() {
@@ -68,12 +69,10 @@ ngApp1
 });
 
 
-
 ReactDOM.render(<App1 />, document.getElementById("react-app1"));
 ReactDOM.render(<App2 />, document.getElementById("react-app2"));
 
-
 angular.element(function() {
-    var ngAppEl = document.getElementById('ng-app1');
-    angular.bootstrap(ngAppEl, ['ngApp1']);
+  var ngAppEl = document.getElementById('ng-app1');
+  angular.bootstrap(ngAppEl, ['ngApp1']);
 });

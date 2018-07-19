@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NG React</title>
+  <style>
+    section {
+      margin: 20px;
+      border: 5px solid red;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
   <section id="react-app1"></section>
@@ -15,6 +22,7 @@
       <div>
         <span>{{vm.hello}}&nbsp;{{vm.ngApp}}</span>
         <my-comp></my-comp>
+        <my-ng-react-comp> </my-ng-react-comp>
       </div>
     </script>
     <script type="text/ng-template" id="comp.tmpl.html">

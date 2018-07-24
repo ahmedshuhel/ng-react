@@ -7,10 +7,15 @@ import { NgReactComp } from './react-components/ng-react-comp.js';
 const ngApp2 = angular.module("ngApp2", ['ui.router']);
 
 ngApp2
-  .controller("myCtrl", function() {
+  .controller("HomeController", function() {
     var vm = this;
-    vm.hello = "Hello, ";
-    vm.ngApp = "NG App2";
+    vm.title = "Home Page";
+    vm.welcome = "Hello, Angular App2";
+  })
+  .controller("AboutController", function() {
+    var vm = this;
+    vm.title = "About Page";
+    vm.message = "That's all about it!";
   })
   .component("myComp", {
     templateUrl: 'comp.tmpl.html',
@@ -46,13 +51,21 @@ ngApp2
     }
   })
   .config(($stateProvider) => {
-    $stateProvider.state({
-      name: 'app',
-      url: '',
-      controller: 'myCtrl',
-      controllerAs: 'vm',
-      templateUrl: 'app.tmpl.html'
-    });
+    $stateProvider
+      .state({
+        name: 'home',
+        url: '',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        templateUrl: 'home.tmpl.html'
+      })
+      .state({
+        name: 'about',
+        url: '/about',
+        controller: 'AboutController',
+        controllerAs: 'vm',
+        templateUrl: 'about.tmpl.html'
+      });
 });
 
 export default ngApp2

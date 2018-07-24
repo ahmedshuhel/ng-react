@@ -16,17 +16,18 @@
 <body>
   <section id="react-app1"></section>
   <section id="react-app2"></section>
-
-
   <section id="ng-app2">
     <ui-view></ui-view>
-    <script type="text/ng-template" id="app.tmpl.html">
+    <script type="text/ng-template" id="home.tmpl.html">
       <div>
-        <span>{{vm.hello}}&nbsp;{{vm.ngApp}}</span>
+        <span>{{vm.title}}</span>
+        <div>{{vm.welcome}}</div>
         <my-comp></my-comp>
         <my-ng-react-comp> </my-ng-react-comp>
+        <a href="#/about" ui-sref="about"> About</a>
       </div>
     </script>
+
     <script type="text/ng-template" id="comp.tmpl.html">
       <div>
         {{$ctrl.hello}}
@@ -36,8 +37,12 @@
       </div>
     </script>
     <script type="text/ng-template" id="child.tmpl.html">
+      <div><span>I am a child componet!</span></div>
+    </script>
+    <script type="text/ng-template" id="about.tmpl.html">
       <div>
-        <span>I am a child componet!</span>
+        <span>{{vm.title}}</span>
+        <div>{{vm.message}}</div>
       </div>
     </script>
   </section>

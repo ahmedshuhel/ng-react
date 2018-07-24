@@ -1,31 +1,38 @@
 import React from 'react';
+import axios from 'axios';
 
 export class Autocomplete extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      query: ''
+      countries: []
     };
   }
 
-  onChange = (ev) => this.setState({
-    query : ev.target.value
-  })
+  onChange = (ev) => {
+    let q = ev.target.value;
+    if (q.length < 2) return;
 
-  getWords = (q) => [
-    { w: 'aa', k: 1 },
-    { w: 'ab', k: 2 },
-    { w: 'ac', k: 3 },
-    { w: 'ad', k: 4 },
-  ].filter(x => x.w.startsWith(q))
+    axios.get(`https://restcountries.eu/rest/v2/name/${q}`)
+      .then(res => {
+        this.setState({
+          countries: res.data
+        })
+      })
+      .catch(() => {
+        this.setState({
+          countries: []
+        })
+      });
+  }
 
   render () {
     return (
       <div>
-        <input type="text" value={this.state.query} onChange={this.onChange} placeholder="Search..." />
+        <input type="text" onChange={this.onChange} placeholder="Search..." />
         <ul>
-          {this.getWords(this.state.query).map(x => (<li key={x.k}>{x.w}</li>))}
+          {this.state.countries.map(x => (<li key={x.numericCode}>{x.name}</li>))}
         </ul>
       </div>
     )

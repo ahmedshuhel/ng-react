@@ -16,6 +16,33 @@
 <body>
   <section id="react-app1"></section>
   <section id="react-app2"></section>
+
+
+  <section id="ng-app2">
+    <ui-view></ui-view>
+    <script type="text/ng-template" id="app.tmpl.html">
+      <div>
+        <span>{{vm.hello}}&nbsp;{{vm.ngApp}}</span>
+        <my-comp></my-comp>
+        <my-ng-react-comp> </my-ng-react-comp>
+      </div>
+    </script>
+    <script type="text/ng-template" id="comp.tmpl.html">
+      <div>
+        {{$ctrl.hello}}
+        <button ng-click="$ctrl.clickMe()">click me!</button>
+        <my-child-component></my-child-component>
+        <my-ng-react-comp> </my-ng-react-comp>
+      </div>
+    </script>
+    <script type="text/ng-template" id="child.tmpl.html">
+      <div>
+        <span>I am a child componet!</span>
+      </div>
+    </script>
+  </section>
+
+
   <section id="ng-app1">
     <ui-view></ui-view>
     <script type="text/ng-template" id="app.tmpl.html">
@@ -39,5 +66,6 @@
       </div>
     </script>
   </section>
+
 </body>
 </html>

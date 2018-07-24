@@ -6,13 +6,19 @@ import ReactDOM from "react-dom";
 import ngApp1 from './ng-app1.js';
 import ngApp2 from './ng-app2.js';
 
+
+import {Autocomplete} from './react-components/autocomplete';
+
 const App1 = () => {
   return <div>Hello React App1!</div>;
 };
 
-const App2 = () => {
-  return <div>Hello React App2!</div>;
-};
+const App2 = () => (
+ <div>
+    Hello React App2!
+    <Autocomplete />
+  </div>
+);
 
 
 

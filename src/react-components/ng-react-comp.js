@@ -1,3 +1,5 @@
 import React from "react";
 
-export const NgReactComp = () => <div>Hello Ng React!</div>
+export const NgReactComp = ({isActive}) => isActive || (
+      <div>Hello Ng React!</div>
+)

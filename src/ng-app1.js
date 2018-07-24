@@ -48,6 +48,10 @@ ngApp1
       $postLink() {
         ReactDOM.render(<NgReactComp/>, this.$element[0]);
       }
+
+      $onDestroy() {
+        ReactDOM.unmountComponentAtNode(this.$element[0]);
+      }
     }
   })
   .config(($stateProvider) => {

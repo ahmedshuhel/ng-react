@@ -12,6 +12,11 @@ ngApp1
     vm.hello = "Hello, ";
     vm.ngApp = "NG App1";
   })
+  .controller("ContactController", function() {
+    var vm = this;
+    vm.title = "Contact Page";
+    vm.company = "NewsCred Inc.";
+  })
   .component("myComp", {
     templateUrl: 'comp.tmpl.html',
     controller: class {
@@ -46,13 +51,21 @@ ngApp1
     }
   })
   .config(($stateProvider) => {
-    $stateProvider.state({
-      name: 'app',
-      url: '',
-      controller: 'myCtrl',
-      controllerAs: 'vm',
-      templateUrl: 'app.tmpl.html'
-    });
+    $stateProvider
+      .state({
+        name: 'home',
+        url: '',
+        controller: 'myCtrl',
+        controllerAs: 'vm',
+        templateUrl: 'app.tmpl.html'
+      })
+      .state({
+        name: 'contact',
+        url: '/contact',
+        controller: 'ContactController',
+        controllerAs: 'vm',
+        templateUrl: 'contact.tmpl.html'
+      });
 });
 
 export default ngApp1

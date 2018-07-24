@@ -50,6 +50,7 @@
         <span>{{vm.hello}}&nbsp;{{vm.ngApp}}</span>
         <my-comp></my-comp>
         <my-ng-react-comp> </my-ng-react-comp>
+        <a herf="#/contact" ui-sref="contact">Contact</a>
       </div>
     </script>
     <script type="text/ng-template" id="comp.tmpl.html">
@@ -65,7 +66,12 @@
         <span>I am a child componet!</span>
       </div>
     </script>
+    <script type="text/ng-template" id="contact.tmpl.html">
+      <div>
+        <div>{{vm.title}}</div>
+        <div>{{vm.company}}</div>
+      </div>
+    </script>
   </section>
-
 </body>
 </html>

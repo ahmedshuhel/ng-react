@@ -17,6 +17,7 @@ const App2 = () => {
 
 
 ReactDOM.render(<App1 />, document.getElementById("react-app1"));
+
 ReactDOM.render(<App2 />, document.getElementById("react-app2"));
 
 angular.element(function() {

@@ -18,10 +18,7 @@ export class Autocomplete extends React.Component {
 
   _search(q) {
     if (q.length < 2) {
-      this.setState({
-        countries: res.data
-      });
-      return;
+      return this._empty();
     }
     axios.get(`https://restcountries.eu/rest/v2/name/${q}`)
       .then(res => {
@@ -30,13 +27,17 @@ export class Autocomplete extends React.Component {
         })
       })
       .catch(() => {
-        this.setState({
-          countries: []
-        })
+        this._empty();
       });
   }
 
-  render () {
+  _empty() {
+    this.setState({
+      countries: []
+    })
+  }
+
+  render() {
     return (
       <div>
         <input type="text" onChange={this.onChange} placeholder="Search..." />
